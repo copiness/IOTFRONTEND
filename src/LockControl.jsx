@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import './lock.css';
-const url="https://lucky-fawn-handkerchief.cyclic.app"
+import React, { useState } from "react";
+import "./lock.css";
+const url = "https://lucky-fawn-handkerchief.cyclic.app";
 const LockControl = () => {
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState("");
   const [isLocked, setIsLocked] = useState(true);
 
   const checkLockState = async () => {
@@ -11,16 +11,16 @@ const LockControl = () => {
       const data = await response.json();
       setIsLocked(data.isLocked);
     } catch (error) {
-      console.error('Error fetching lock state:', error);
+      console.error("Error fetching lock state:", error);
     }
   };
 
   const handleUnlock = async () => {
     try {
       const response = await fetch(`${url}/lock/unlock`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ password }),
       });
@@ -28,27 +28,27 @@ const LockControl = () => {
       const data = await response.json();
       setIsLocked(!data.success);
     } catch (error) {
-      console.error('Error unlocking:', error);
+      console.error("Error unlocking:", error);
     }
   };
 
   const handleLock = async () => {
     try {
       const response = await fetch(`${url}/lock/lock`, {
-        method: 'POST',
+        method: "POST",
       });
 
       const data = await response.json();
       setIsLocked(data.success);
     } catch (error) {
-      console.error('Error locking:', error);
+      console.error("Error locking:", error);
     }
   };
 
   return (
     <div className="lock-control-container">
-      <h1>Lock Control By Amllan</h1>
-      <p>Lock is {isLocked ? 'locked' : 'unlocked'}</p>
+      <h1>Lock Control By Aklanta</h1>
+      <p>Lock is {isLocked ? "locked" : "unlocked"}</p>
 
       {isLocked ? (
         <div>

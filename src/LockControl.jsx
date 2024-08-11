@@ -47,7 +47,7 @@ const LockControl = () => {
 
   return (
     <div className="lock-control-container">
-      <h1>Lock Control By Satu</h1>
+      <h1>Lock Control By Sat</h1>
       <p>Lock is {isLocked ? "locked" : "unlocked"}</p>
 
       {isLocked ? (
